@@ -1,0 +1,135 @@
+/* Container for file upload */
+.file-upload-container {
+  border: 2px dashed #4f46e5;
+  padding: 25px;
+  text-align: center;
+  margin-bottom: 20px;
+  border-radius: 12px;
+  background-color: #f9f9ff;
+  transition: background 0.3s ease;
+}
+
+.file-upload-container:hover {
+  background-color: #f3f3ff;
+}
+
+/* Buttons */
+.select-btn, .upload-btn {
+  margin: 8px;
+  padding: 12px 25px;
+  cursor: pointer;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-weight: bold;
+  transition: transform 0.2s ease;
+}
+
+.select-btn {
+  background-color: #4f46e5;
+}
+
+.upload-btn {
+  background-color: #16a34a;
+}
+
+.select-btn:hover, .upload-btn:hover {
+  transform: scale(1.05);
+}
+
+/* Progress bar */
+.progress-bar {
+  height: 12px;
+  width: 100%;
+  background-color: #ddd;
+  border-radius: 6px;
+  margin-top: 15px;
+  overflow: hidden;
+}
+
+.progress {
+  height: 100%;
+  background-color: #4f46e5;
+  border-radius: 6px;
+  transition: width 0.3s ease;
+}
+
+/* Selected file list */
+.selected-files p {
+  margin: 5px 0;
+  font-size: 14px;
+  color: #333;
+}
+
+/* File list container */
+.file-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+/* Individual file item */
+.file-item {
+  border: 1px solid #ddd;
+  padding: 12px;
+  border-radius: 10px;
+  text-align: center;
+  width: 130px;
+  position: relative;
+  background-color: white;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.file-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.12);
+}
+
+/* Thumbnail for images */
+.file-thumb {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-bottom: 8px;
+}
+
+/* PDF / generic file icon */
+.pdf-icon, .file-icon {
+  width: 100px;
+  height: 100px;
+  background-color: #e5e7eb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  border-radius: 6px;
+  margin: 0 auto 8px auto;
+  color: #555;
+}
+
+/* File name */
+.file-name {
+  font-size: 13px;
+  margin: 5px 0;
+  word-break: break-word;
+}
+
+/* Delete button */
+.delete-btn {
+  background-color: #f87171;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 6px;
+  cursor: pointer;
+  font-size: 12px;
+  width: 100%;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.delete-btn:hover {
+  background-color: #ef4444;
+  transform: scale(1.05);
+}
