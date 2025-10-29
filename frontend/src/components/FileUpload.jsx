@@ -1,15 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import "./FileUpload.css";
+import BASE_URL from "../config"; // import your backend URL
 
 const FileUpload = ({ onUpload }) => {
-  const [file, setFile] = useState(null); // Only for the currently selected file
+  const [file, setFile] = useState(null);
   const [progress, setProgress] = useState(0);
 
-  // Select a file
   const handleFileSelect = (e) => setFile(e.target.files[0]);
 
-  // Upload file
   const handleUpload = async () => {
     if (!file) return alert("Please select a file first!");
 
@@ -17,18 +16,18 @@ const FileUpload = ({ onUpload }) => {
     formData.append("file", file);
 
     try {
-      await axios.post("http://localhost:5000/api/files/upload", formData, {
+      await axios.post(`${BASE_URL}/api/files/upload`, formData, {
         headers: { "Content-Type": "multipart/form-data" },
         onUploadProgress: (event) => {
           setProgress(Math.round((event.loaded * 100) / event.total));
         },
       });
 
-      setFile(null); // Clear selected file after upload
+      setFile(null);
       setProgress(0);
-      if (onUpload) onUpload(); // Refresh uploaded files list
+      if (onUpload) onUpload();
     } catch (err) {
-      console.error(err);
+      console.error("Upload failed:", err);
       alert("Upload failed!");
     }
   };
