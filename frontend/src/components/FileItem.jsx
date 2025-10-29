@@ -1,10 +1,11 @@
 import React from "react";
 import "./FileUpload.css";
+import BASE_URL from "../config"; // make sure config.js is in src/
 
 const FileItem = ({ file, onDelete }) => {
   const handleDelete = async () => {
     try {
-      await fetch(`http://localhost:5000/api/files/${file._id}`, {
+      await fetch(`${BASE_URL}/api/files/${file._id}`, {
         method: "DELETE",
       });
       onDelete();
@@ -18,7 +19,7 @@ const FileItem = ({ file, onDelete }) => {
     if (file.mimetype?.startsWith("image/")) {
       return (
         <img
-          src={`http://localhost:5000/uploads/${file.filename}`}
+          src={`${BASE_URL}/uploads/${file.filename}`}
           alt={file.filename}
           className="file-thumb"
         />
