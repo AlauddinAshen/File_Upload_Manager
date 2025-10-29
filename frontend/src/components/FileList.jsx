@@ -2,16 +2,17 @@ import React, { useEffect, useState } from "react";
 import FileItem from "./FileItem";
 import axios from "axios";
 import "./FileUpload.css";
+import BASE_URL from "../config"; // import backend URL
 
 const FileList = ({ refresh }) => {
   const [files, setFiles] = useState([]);
 
   const fetchFiles = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/files");
+      const res = await axios.get(`${BASE_URL}/api/files`);
       setFiles(res.data);
     } catch (err) {
-      console.error(err);
+      console.error("Error fetching files:", err);
     }
   };
 
