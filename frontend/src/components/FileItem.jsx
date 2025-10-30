@@ -1,6 +1,6 @@
 import React from "react";
 import "./FileUpload.css";
-import BASE_URL from "../config"; // make sure config.js is in src/
+import BASE_URL from "../config";
 
 const FileItem = ({ file, onDelete }) => {
   const handleDelete = async () => {
